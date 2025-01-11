@@ -159,27 +159,94 @@ For each query, output a single integer, the total productivity score over the s
 ```
 ---
 
+4. Input
+```
+10 2
+1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000
+1 10
+5 10
+```
+4. Output
+```
+10000000000
+6000000000
+```
+---
+5. Input
+```
+1 1
+1
+1 1
+```
 
+5. Ouput
+```
+1
+```
+---
+## Solution
 
+### Pseudocode
 
+1. **Input Reading**:
+   - Read integers `n` (number of elements) and `q` (number of queries).
+   - Read the array `arr` of size `n`.
 
+2. **Prefix Sum Calculation**:
+   - Create an array `prefix_sum` of size `n+1` (1-based indexing).
+   - Initialize `prefix_sum[0] = 0`.
+   - For `i = 1` to `n`:
+     - `prefix_sum[i] = prefix_sum[i-1] + arr[i-1]`.
 
+3. **Query Processing**:
+   - For each query `(a, b)`:
+     - Compute the range sum as:
+       ```
+       result = prefix_sum[b] - prefix_sum[a-1]
+       ```
+     - Output the `result`.
 
+### Time Complexity
+- Prefix sum computation: \( O(n) \)
+- Query processing: \( O(1) \) per query, \( O(q) \) for all queries.
+- Total: \( O(n + q) \)
 
+### Space Complexity
+- \( O(n) \) for the prefix sum array.
+---
 
+### Implementation
 
+#### C++ Implementation
 
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int main() {
+    // Input reading
+    int n, q;
+    cin >> n >> q; // Number of elements and queries
 
+    vector<int> arr(n); // Array to store the elements
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
+    // Prefix sum calculation
+    vector<long long> prefix_sum(n + 1, 0); // Prefix sum array
+    for (int i = 1; i <= n; i++) {
+        prefix_sum[i] = prefix_sum[i - 1] + arr[i - 1];
+    }
 
+    // Query processing
+    while (q--) {
+        int a, b;
+        cin >> a >> b; // Read query range [a, b]
+        cout << prefix_sum[b] - prefix_sum[a - 1] << endl; // Compute and print result
+    }
 
-
-
-
-
-
-
-
-
-
+    return 0;
+}
+```
