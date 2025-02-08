@@ -1,5 +1,11 @@
 # Office Performance Analysis
 
+###### Made by [Abhishek](https://github.com/itsabhianant)
+
+## Description
+
+Calculate the total productivity of an employee over a specific range of days.
+
 ## Problem Statement
 
 In a corporate office, the management tracks the daily performance scores of employees over a period of `n` days. Each performance score is recorded in an array, where each number represents the productivity score for a specific day.
@@ -55,6 +61,42 @@ For each query, output a single integer, the total productivity score over the s
 24
 4
 ```
+
+1. Explanation
+
+First Line: `8 4`
+
+- `8` is the number of elements in the array.
+- `4` is the number of queries.
+
+Second Line: `3 2 4 5 1 1 5 3`
+
+- This is the array of 8 elements.
+
+Subsequent Lines: Each pair represents a query in the form `(a, b)`, where `a` is the starting index and `b` is the ending index (1-based index).
+
+### Queries and Outputs
+
+For each query `(a, b)`, you need to find the sum of the elements from index `a` to `b` (inclusive).
+
+Let's go through a few queries to understand the output:
+
+1. **Query (2, 4)**:
+  - Sum of elements from index 2 to 4: `2 + 4 + 5 = 11`
+  - Output: `11`
+
+2. **Query (5, 6)**:
+  - Sum of elements from index 5 to 6: `1 + 1 = 2`
+  - Output: `2`
+
+3. **Query (1, 8)**:
+  - Sum of elements from index 1 to 8: `3 + 2 + 4 + 5 + 1 + 1 + 5 + 3 = 24`
+  - Output: `24`
+
+4. **Query (3, 3)**:
+  - Sum of elements from index 3 to 3: `4`
+  - Output: `4`
+
 ---
 
 2. Input:
@@ -138,6 +180,58 @@ For each query, output a single integer, the total productivity score over the s
 12
 8
 ```
+
+2. Explanation
+
+First Line: `8 36`
+
+- `8` is the number of elements in the array.
+- `36` is the number of queries.
+
+Second Line: `7 6 4 6 2 9 4 8`
+
+- This is the array of 8 elements.
+
+Subsequent Lines: Each pair represents a query in the form `(l, r)`, where `l` is the starting index and `r` is the ending index (1-based index).
+
+### Queries and Outputs
+
+For each query `(l, r)`, you need to find the sum of the elements from index `l` to `r` (inclusive).
+
+Let's go through a few queries to understand the output:
+
+1. **Query (1, 1)**:
+  - Sum of elements from index 1 to 1: `7`
+  - Output: `7`
+
+2. **Query (1, 2)**:
+  - Sum of elements from index 1 to 2: `7 + 6 = 13`
+  - Output: `13`
+
+3. **Query (1, 3)**:
+  - Sum of elements from index 1 to 3: `7 + 6 + 4 = 17`
+  - Output: `17`
+
+4. **Query (1, 4)**:
+  - Sum of elements from index 1 to 4: `7 + 6 + 4 + 6 = 23`
+  - Output: `23`
+
+5. **Query (1, 5)**:
+  - Sum of elements from index 1 to 5: `7 + 6 + 4 + 6 + 2 = 25`
+  - Output: `25`
+
+6. **Query (1, 6)**:
+  - Sum of elements from index 1 to 6: `7 + 6 + 4 + 6 + 2 + 9 = 34`
+  - Output: `34`
+
+7. **Query (1, 7)**:
+  - Sum of elements from index 1 to 7: `7 + 6 + 4 + 6 + 2 + 9 + 4 = 38`
+  - Output: `38`
+
+8. **Query (1, 8)**:
+  - Sum of elements from index 1 to 8: `7 + 6 + 4 + 6 + 2 + 9 + 4 + 8 = 46`
+  - Output: `46`
+
 ---
 
 3. Input
@@ -151,11 +245,9 @@ For each query, output a single integer, the total productivity score over the s
 
 3. Output
 ```
-5 3
-15 20 25 30 35
-1 3
-2 5
-3 4
+60
+110
+55
 ```
 ---
 
